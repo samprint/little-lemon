@@ -1,5 +1,6 @@
 package com.example.littlelemon
 
+import android.content.Context
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -27,6 +28,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
@@ -36,6 +38,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 
 val KarlaRegularFont = FontFamily(
     Font(R.font.karla_regular)
@@ -45,11 +48,13 @@ val MarkaziTextRegularFont = FontFamily(
 )
 
 @Composable
-fun Onboarding(){
+fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
 
     var firstname by remember { mutableStateOf( TextFieldValue("")) }
     var lastname by remember { mutableStateOf( TextFieldValue("")) }
     var email by remember { mutableStateOf( TextFieldValue("")) }
+
+    val context = LocalContext.current
 
 
     Column ( // Main Column
@@ -129,6 +134,7 @@ fun Onboarding(){
                 textStyle = TextStyle(
                     fontSize = 15.sp,
                     fontFamily = KarlaRegularFont,
+                    color = Color.Black,
                 )
             )
             Text(
@@ -151,6 +157,7 @@ fun Onboarding(){
                 textStyle = TextStyle(
                     fontSize = 15.sp,
                     fontFamily = KarlaRegularFont,
+                    color = Color.Black,
                 )
             )
             Text(
@@ -173,10 +180,22 @@ fun Onboarding(){
                 textStyle = TextStyle(
                     fontSize = 15.sp,
                     fontFamily = KarlaRegularFont,
+                    color = Color.Black,
                 )
             )
             Button(
-                onClick = { /*TODO*/ },
+                onClick = {
+                    // Save login state to SharedPreferences
+                    val prefs = context.
+                        getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
+                    prefs.edit().putBoolean("isLoggedIn", true).apply()
+
+                    navController.navigate("Home")
+                    // To prevent back navigation to Onboarding after logging in.
+                    {
+                        popUpTo("Onboarding") { inclusive = true }
+                    }
+                },
                 modifier = Modifier
                     .padding(top = 140.dp)
                     .fillMaxWidth()
@@ -205,5 +224,5 @@ fun Onboarding(){
 @Preview
 @Composable
 fun OnboardingPreview(){
-    Onboarding()
+    Onboarding(NavHostController(LocalContext.current))
 }
