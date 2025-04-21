@@ -127,7 +127,6 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                 onValueChange = {firstname = it},
                 shape = RoundedCornerShape(8.dp),
                 modifier = Modifier
-                    .border(width = 1.dp, color = Color.LightGray)
                     .height(50.dp)
                     .fillMaxWidth()
                     ,
@@ -151,7 +150,6 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                 onValueChange = {lastname = it},
                 shape = RoundedCornerShape(8.dp),
                 modifier = Modifier
-                    .border(width = 1.dp, color = Color.LightGray)
                     .height(50.dp)
                     .fillMaxWidth(),
                 textStyle = TextStyle(
@@ -174,7 +172,6 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                 onValueChange = {email = it},
                 shape = RoundedCornerShape(8.dp),
                 modifier = Modifier
-                    .border(width = 1.dp, color = Color.LightGray)
                     .height(50.dp)
                     .fillMaxWidth(),
                 textStyle = TextStyle(
@@ -197,7 +194,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                     }
                 },
                 modifier = Modifier
-                    .padding(top = 140.dp)
+                    .padding(top = 130.dp)
                     .fillMaxWidth()
                     ,
                 colors = ButtonDefaults
