@@ -1,6 +1,7 @@
 package com.example.littlelemon
 
 import android.content.Context
+import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -178,15 +179,28 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
             )
             Button(
                 onClick = {
-                    // Save login state to SharedPreferences
-                    val prefs = context.
-                        getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
-                    prefs.edit().putBoolean("isLoggedIn", true).apply()
+                    // Making sure the data is not empty
+                    if (firstname.text.isEmpty() || lastname.text.isEmpty() || email.text.isEmpty()){
+                        Toast.makeText(context,
+                            "Registration unsuccessful. Please enter all data.",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                    else{
+                        Toast.makeText(context,
+                            "Registration successful!",
+                            Toast.LENGTH_LONG
+                        ).show()
+                        // Save login state to SharedPreferences
+                        val prefs = context.
+                            getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
+                        prefs.edit().putBoolean("isLoggedIn", true).apply()
 
-                    navController.navigate("Home")
-                    // To prevent back navigation to Onboarding after logging in.
-                    {
-                        popUpTo("Onboarding") { inclusive = true }
+                        navController.navigate("Home")
+                        // To prevent back navigation to Onboarding after logging in.
+                        {
+                            popUpTo("Onboarding") { inclusive = true }
+                        }
                     }
                 },
                 modifier = Modifier
