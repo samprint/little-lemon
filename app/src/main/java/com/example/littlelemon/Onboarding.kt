@@ -1,6 +1,7 @@
 package com.example.littlelemon
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -44,6 +45,19 @@ val MarkaziTextRegularFont = FontFamily(
     Font(R.font.markazi_text_regular)
 )
 
+// Define constants for SharedPreferences keys and name
+const val PREFS_NAME        = "MyAppPrefs"
+const val FIRST_NAME_KEY    = "firstnameText"
+const val LAST_NAME_KEY     = "lastnameText"
+const val EMAIL_KEY         = "emailText"
+const val IS_LOGGED_IN_KEY  = "isLoggedIn"
+
+// Helper function to get SharedPreferences instance
+private fun getPreferences(context: Context): SharedPreferences {
+    return context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+}
+
+
 @Composable
 fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
 
@@ -52,6 +66,25 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
     var email by remember { mutableStateOf( "") }
 
     val context = LocalContext.current
+    val sharedPreferences = remember { getPreferences(context) }
+
+    // --- SharedPreferences ---
+
+    // Function to save data
+    val saveData = {
+        sharedPreferences.edit()
+            .putString(FIRST_NAME_KEY, firstname)
+            .putString(LAST_NAME_KEY, lastname)
+            .putString(EMAIL_KEY, email)
+            .putBoolean(IS_LOGGED_IN_KEY, true)
+            .apply() // Use apply() for asynchronous saving
+    }
+    // Function to load data
+    val loadData = {
+        firstname = sharedPreferences.getString(FIRST_NAME_KEY, "") ?: ""
+        lastname = sharedPreferences.getString(LAST_NAME_KEY, "") ?: ""
+        email = sharedPreferences.getString(EMAIL_KEY, "") ?: ""
+    }
 
     Column(
         // Main Column
@@ -194,9 +227,11 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                             Toast.LENGTH_LONG
                         ).show()
                         // Save login state to SharedPreferences
-                        val prefs = context.
-                            getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
-                        prefs.edit().putBoolean("isLoggedIn", true).apply()
+//                        val prefs = context.
+//                            getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+//                        prefs.edit().putBoolean(IS_LOGGED_IN_KEY, true).apply()
+                        // Save login data
+                        saveData()
 
                         navController.navigate("Home")
                         // To prevent back navigation to Onboarding after logging in.

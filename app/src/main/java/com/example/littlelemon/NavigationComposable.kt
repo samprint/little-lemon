@@ -16,8 +16,8 @@ fun Navigation(navController: NavHostController, modifier: Modifier = Modifier) 
 
     // Read login state from SharedPreferences
     val isLoggedIn =
-        context.getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
-            .getBoolean("isLoggedIn", false)
+        context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+            .getBoolean(IS_LOGGED_IN_KEY, false)
 
 
     // Decide start destination based on login state
