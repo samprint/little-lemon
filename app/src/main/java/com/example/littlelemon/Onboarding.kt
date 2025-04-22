@@ -32,7 +32,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -226,10 +225,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                             "Registration successful!",
                             Toast.LENGTH_LONG
                         ).show()
-                        // Save login state to SharedPreferences
-//                        val prefs = context.
-//                            getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-//                        prefs.edit().putBoolean(IS_LOGGED_IN_KEY, true).apply()
+
                         // Save login data
                         saveData()
 
@@ -250,7 +246,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                             ),
                 shape = RoundedCornerShape(8.dp),
                 border = BorderStroke(1.dp, Color(0xFFEE9972))
-                    ) {
+            ) {
                 Text(
                     text = "Register",
                     fontFamily = KarlaRegularFont,
