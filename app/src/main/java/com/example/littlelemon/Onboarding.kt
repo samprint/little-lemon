@@ -53,39 +53,38 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
 
     val context = LocalContext.current
 
-
-    Column ( // Main Column
+    Column(
+        // Main Column
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White)
-            ,
+            .background(Color.White),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
 
-    ){
-        Column ( // Logo Column
+        ) {
+        Column(
+            // Logo Column
             modifier = Modifier
-                .weight(1.25f)
-                ,
+                .weight(1.25f),
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.CenterHorizontally,
-        ){
+        ) {
             Image(
                 painter = painterResource(id = R.drawable.logo),
                 contentDescription = "Logo",
                 Modifier.scale(0.5f)
             )
         }
-        Column (  // Let's get to know you Column
+        Column(
+            // Let's get to know you Column
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(1.25f)
-                .background(Color(0xFF495E57))
-                ,
+                .background(Color(0xFF495E57)),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
 
-        ){
+            ) {
             Text(
                 text = "Let's get to know you",
                 fontFamily = KarlaRegularFont,
@@ -93,14 +92,15 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                 color = Color.White,
             )
         }
-        Column ( // Registration Column
+        Column(
+            // Registration Column
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(7.5f)
                 .background(Color.White)
-                .padding(start = 15.dp, end = 15.dp)
-                ,
-        ){
+                .padding(start = 15.dp, end = 15.dp),
+        ) {
+            //region TextFields
             Text(
                 text = "Personal information",
                 fontFamily = KarlaRegularFont,
@@ -121,12 +121,11 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
             )
             OutlinedTextField(
                 value = firstname,
-                onValueChange = {firstname = it},
+                onValueChange = { firstname = it },
                 shape = RoundedCornerShape(8.dp),
                 modifier = Modifier
                     .height(50.dp)
-                    .fillMaxWidth()
-                    ,
+                    .fillMaxWidth(),
                 textStyle = TextStyle(
                     fontSize = 15.sp,
                     fontFamily = KarlaRegularFont,
@@ -144,7 +143,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
             )
             OutlinedTextField(
                 value = lastname,
-                onValueChange = {lastname = it},
+                onValueChange = { lastname = it },
                 shape = RoundedCornerShape(8.dp),
                 modifier = Modifier
                     .height(50.dp)
@@ -166,7 +165,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
             )
             OutlinedTextField(
                 value = email,
-                onValueChange = {email = it},
+                onValueChange = { email = it },
                 shape = RoundedCornerShape(8.dp),
                 modifier = Modifier
                     .height(50.dp)
@@ -177,6 +176,9 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                     color = Color.Black,
                 )
             )
+
+            //endregion
+
             Button(
                 onClick = {
                     // Making sure the data is not empty
