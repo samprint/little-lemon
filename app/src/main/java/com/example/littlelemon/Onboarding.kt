@@ -47,9 +47,9 @@ val MarkaziTextRegularFont = FontFamily(
 @Composable
 fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
 
-    var firstname by remember { mutableStateOf( TextFieldValue("")) }
-    var lastname by remember { mutableStateOf( TextFieldValue("")) }
-    var email by remember { mutableStateOf( TextFieldValue("")) }
+    var firstname by remember { mutableStateOf( "") }
+    var lastname by remember { mutableStateOf( "") }
+    var email by remember { mutableStateOf( "") }
 
     val context = LocalContext.current
 
@@ -62,6 +62,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
         horizontalAlignment = Alignment.CenterHorizontally,
 
         ) {
+        //region Columns
         Column(
             // Logo Column
             modifier = Modifier
@@ -92,6 +93,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                 color = Color.White,
             )
         }
+        //endregion
         Column(
             // Registration Column
             modifier = Modifier
@@ -176,13 +178,11 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                     color = Color.Black,
                 )
             )
-
             //endregion
-
             Button(
                 onClick = {
                     // Making sure the data is not empty
-                    if (firstname.text.isEmpty() || lastname.text.isEmpty() || email.text.isEmpty()){
+                    if (firstname.isEmpty() || lastname.isEmpty() || email.isEmpty()){
                         Toast.makeText(context,
                             "Registration unsuccessful. Please enter all data.",
                             Toast.LENGTH_LONG
