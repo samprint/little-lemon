@@ -67,23 +67,15 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
     val context = LocalContext.current
     val sharedPreferences = remember { getPreferences(context) }
 
-    // --- SharedPreferences ---
-
-    // Function to save data
+    // SharedPreferences --- Function to save data
     val saveData = {
         sharedPreferences.edit()
             .putString(FIRST_NAME_KEY, firstname)
             .putString(LAST_NAME_KEY, lastname)
             .putString(EMAIL_KEY, email)
             .putBoolean(IS_LOGGED_IN_KEY, true)
-            .apply() // Use apply() for asynchronous saving
+            .apply()
     }
-    // Function to load data
-//    val loadData = {
-//        firstname = sharedPreferences.getString(FIRST_NAME_KEY, "") ?: ""
-//        lastname = sharedPreferences.getString(LAST_NAME_KEY, "") ?: ""
-//        email = sharedPreferences.getString(EMAIL_KEY, "") ?: ""
-//    }
 
     Column(
         // Main Column

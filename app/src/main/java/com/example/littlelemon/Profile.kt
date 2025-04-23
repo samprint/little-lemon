@@ -45,25 +45,14 @@ fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
     val context = LocalContext.current
     val sharedPreferences = remember { getPreferences(context) }
 
-    // --- SharedPreferences ---
-
-    // Function to save data
-//    val saveData = {
-//        sharedPreferences.edit()
-//            .putString(FIRST_NAME_KEY, firstname)
-//            .putString(LAST_NAME_KEY, lastname)
-//            .putString(EMAIL_KEY, email)
-//            .putBoolean(IS_LOGGED_IN_KEY, true)
-//            .apply() // Use apply() for asynchronous saving
-//    }
-    // Function to load data
+    // SharedPreferences --- Function to load data
     val loadData = {
         firstname = sharedPreferences.getString(FIRST_NAME_KEY, "") ?: ""
         lastname = sharedPreferences.getString(LAST_NAME_KEY, "") ?: ""
         email = sharedPreferences.getString(EMAIL_KEY, "") ?: ""
     }
 
-    // Function to save data
+    // SharedPreferences --- Function to erase data
     val eraseData = {
         sharedPreferences.edit()
             .putString(FIRST_NAME_KEY, "")
@@ -211,36 +200,10 @@ fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
                         "You logged out successfully!",
                         Toast.LENGTH_LONG
                     ).show()
-                    // Save login state to SharedPreferences
-//                    val prefs = context.
-//                    getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
-//                    prefs.edit().putBoolean("isLoggedIn", false).apply()
 
                     // Erase data from SharedPreferences
                     eraseData()
                     navController.navigate("onBoarding")
-//                    // Making sure the data is not empty
-//                    if (firstname.isEmpty() || lastname.isEmpty() || email.isEmpty()){
-//                        Toast.makeText(context,
-//                            "Registration unsuccessful. Please enter all data.",
-//                            Toast.LENGTH_LONG
-//                        ).show()
-//                    }
-//                    else{
-//                        Toast.makeText(context,
-//                            "Registration successful!",
-//                            Toast.LENGTH_LONG
-//                        ).show()
-//
-//                        // load login data
-//                        loadData()
-//
-//                        navController.navigate("Home")
-//                        // To prevent back navigation to Onboarding after logging in.
-//                        {
-//                            popUpTo("Onboarding") { inclusive = true }
-//                        }
-//                    }
                 },
                 modifier = Modifier
                     .padding(top = 130.dp)
