@@ -2,6 +2,12 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    // ---> Added April 23 2025 <---
+//    alias(libs.plugins.kotlin.kapt)
+//    id ("kotlin-kapt")
+    id ("org.jetbrains.kotlin.kapt")
+    alias(libs.plugins.kotlin.serialization)
+
 }
 
 android {
@@ -57,4 +63,10 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation (libs.ktor.client.android)
+    implementation (libs.ktor.client.content.negotiation)
+    implementation (libs.ktor.serialization.kotlinx.json)
+    implementation(libs.kotlinx.serialization.json)
+
+
 }
