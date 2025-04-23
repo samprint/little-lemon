@@ -97,7 +97,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
             Image(
                 painter = painterResource(id = R.drawable.logo),
                 contentDescription = "Logo",
-                Modifier.scale(0.5f)
+                Modifier.scale(0.35f)
             )
         }
         Column(

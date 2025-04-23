@@ -87,7 +87,7 @@ fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
             Image(
                 painter = painterResource(id = R.drawable.logo),
                 contentDescription = "Logo",
-                Modifier.scale(0.5f)
+                Modifier.scale(0.35f)
             )
         }
         Column(
@@ -100,12 +100,12 @@ fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
             horizontalAlignment = Alignment.CenterHorizontally,
 
             ) {
-            Text(
-                text = "Let's get to know you",
-                fontFamily = KarlaRegularFont,
-                fontSize = 26.sp,
-                color = Color.White,
-            )
+//            Text(
+//                text = "Let's get to know you",
+//                fontFamily = KarlaRegularFont,
+//                fontSize = 26.sp,
+//                color = Color.White,
+//            )
         }
         //endregion
         Column(
@@ -118,7 +118,7 @@ fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
         ) {
             //region TextFields
             Text(
-                text = "Personal information",
+                text = "Profile information",
                 fontFamily = KarlaRegularFont,
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
@@ -204,6 +204,10 @@ fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
                     // Erase data from SharedPreferences
                     eraseData()
                     navController.navigate("onBoarding")
+                    {
+                        //remove the screen from the stack
+                        popUpTo("Home") { inclusive = true }
+                    }
                 },
                 modifier = Modifier
                     .padding(top = 130.dp)
