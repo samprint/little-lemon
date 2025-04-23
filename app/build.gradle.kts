@@ -67,6 +67,7 @@ dependencies {
     implementation (libs.ktor.client.content.negotiation)
     implementation (libs.ktor.serialization.kotlinx.json)
     implementation(libs.kotlinx.serialization.json)
-
+    implementation(libs.androidx.room.runtime)
+    kapt("androidx.room:room-compiler:2.7.0")
 
 }
