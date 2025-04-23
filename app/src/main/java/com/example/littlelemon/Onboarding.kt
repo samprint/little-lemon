@@ -52,7 +52,7 @@ const val EMAIL_KEY         = "emailText"
 const val IS_LOGGED_IN_KEY  = "isLoggedIn"
 
 // Helper function to get SharedPreferences instance
-private fun getPreferences(context: Context): SharedPreferences {
+fun getPreferences(context: Context): SharedPreferences {
     return context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
 }
 
@@ -79,11 +79,11 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
             .apply() // Use apply() for asynchronous saving
     }
     // Function to load data
-    val loadData = {
-        firstname = sharedPreferences.getString(FIRST_NAME_KEY, "") ?: ""
-        lastname = sharedPreferences.getString(LAST_NAME_KEY, "") ?: ""
-        email = sharedPreferences.getString(EMAIL_KEY, "") ?: ""
-    }
+//    val loadData = {
+//        firstname = sharedPreferences.getString(FIRST_NAME_KEY, "") ?: ""
+//        lastname = sharedPreferences.getString(LAST_NAME_KEY, "") ?: ""
+//        email = sharedPreferences.getString(EMAIL_KEY, "") ?: ""
+//    }
 
     Column(
         // Main Column
