@@ -70,84 +70,92 @@ fun Home(navController: NavHostController, modifier: Modifier = Modifier){
                     painter = painterResource(id = R.drawable.profile),
                     contentDescription = "Profile",
                     Modifier
-                        .offset(
-                            x = -35.dp,
-//                            y = -10.dp
-                        )
-                        .scale(0.35f)
+//                        .offset(
+//                            x = (-35).dp,
+//                        )
+                        .size(120.dp)
+                        .scale(0.5f)
                         .align(Alignment.TopEnd)
                         .clickable {
                             navController.navigate("Profile")
-                        }
+                        },
+                    contentScale = ContentScale.Crop,
                 )
             }
         }
         Column ( // Hero and list sections
             modifier = Modifier
-                .padding(start = 45.dp, end = 45.dp)
                 .weight(8.75f)
                 ,
         ){
             Column( // Hero Section
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(3f)
+                    .weight(3.5f)
                     .background(Color(0xFF495E57)),
             ) {
                 Row (
                     modifier = Modifier
-                        .fillMaxHeight(0.18f)
+                        .fillMaxHeight(0.212f)
+                        .padding(start = 15.dp, end = 15.dp),
                 ){
                     Text(
                         text = "Little Lemon",
                         modifier = Modifier
-                            .padding(top = 5.dp, start = 10.dp),
+                            .padding(
+                                top = 5.dp,
+                                ),
                         color = Color(0xFFF4CE14),
                         fontFamily = MarkaziTextRegularFont,
-                        fontSize = 40.sp,
+                        fontSize = 60.sp,
                     )
                 }
                 Row (
                     modifier = Modifier
-                        .fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
+                        .fillMaxWidth()
+                        .padding(
+                            start = 15.dp,
+                            end = 15.dp,
+                            top = 10.dp,
+                        ),
                 ){
                     Column (
                         modifier = Modifier
-                            .fillMaxWidth(0.55f)
+                            .fillMaxWidth(0.60f)
                     ){
                         Text(
                             text = "Chicago",
                             modifier = Modifier
-                                .padding(start = 10.dp),
+                                ,
                             color = Color.White,
                             fontFamily = MarkaziTextRegularFont,
-                            fontSize = 25.sp,
+                            fontSize = 38.sp,
                         )
                         Text(
-                            text = "We are a family-owned Mediterranean restaurant, " +
+                            text = "We are a family owned Mediterranean restaurant, " +
                                     "focused on traditional recipes served with a modern twist.",
                             modifier = Modifier
                                 .padding(
-                                    start = 10.dp,
-                                    top = 16.dp
+                                    top = 10.dp
                                 ),
                             style = TextStyle(
-                                lineHeight = 14.sp,
+                                lineHeight = 20.sp,
                                 platformStyle = PlatformTextStyle(includeFontPadding = false)
                             ),
                             color = Color.White,
                             fontFamily = KarlaRegularFont,
-                            fontSize = 13.sp,
+                            fontSize = 17.sp,
                         )
                     }
                     Column(
+                        modifier = Modifier
+                            .padding(start = 8.dp, top = 10.dp),
                     ) {
                         Image(
                             painter = painterResource(id = R.drawable.hero_image),
                             contentDescription = "Profile",
                             modifier = Modifier
-                                .scale(0.7f)
+                                .scale(0.95f)
                                 .size(150.dp)
                                 .clip(RoundedCornerShape(20.dp))
                                 ,
@@ -161,7 +169,7 @@ fun Home(navController: NavHostController, modifier: Modifier = Modifier){
             Column( // List Section
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(7f)
+                    .weight(6.5f)
                     .background(Color.White),
             ) {
                 Text("List")
