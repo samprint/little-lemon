@@ -7,7 +7,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
@@ -15,10 +14,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import androidx.room.Room
 import com.example.littlelemon.ui.theme.LittleLemonTheme
@@ -31,8 +27,6 @@ import io.ktor.http.ContentType
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-
-//var menuItems: List<MenuItemRoom> = listOf()
 
 class MainActivity : ComponentActivity() {
 
@@ -57,43 +51,21 @@ class MainActivity : ComponentActivity() {
                 // add orderMenuItems variable here
                 var orderMenuItems by rememberSaveable { mutableStateOf(false) }
 
-//                lifecycleScope.launch(Dispatchers.IO) {
-//                    if (database.menuItemDao().isEmpty()) {
-//                        // add code here
-//                        val menuItemsNetwork = fetchMenu()
-//                        saveMenuToDatabase(menuItemsNetwork)
-//                    }
-//                }
-
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     MyNavigation(
                         modifier = Modifier.padding(innerPadding),
                         menuItems = databaseMenuItems,
                     )
                 }
-
-//                // add databaseMenuItems code here
-//                val databaseMenuItems by database.menuItemDao().getAll().observeAsState(emptyList())
-//
-//                // add orderMenuItems variable here
-//                var orderMenuItems by rememberSaveable { mutableStateOf(false) }
-//
-//                // add menuItems variable here
-//                val menuItems = databaseMenuItems
-//
-//                MenuItems(items = menuItems)
             }
         }
 
         lifecycleScope.launch(Dispatchers.IO) {
             if (database.menuItemDao().isEmpty()) {
-                // add code here
                 val menuItemsNetwork = fetchMenu()
                 saveMenuToDatabase(menuItemsNetwork)
             }
         }
-
-
     }
 
     private suspend fun fetchMenu(): List<MenuItemNetwork> {
