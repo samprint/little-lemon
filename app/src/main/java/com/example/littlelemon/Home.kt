@@ -172,8 +172,7 @@ fun Home(navController: NavHostController, modifier: Modifier = Modifier){
                     .weight(6.5f)
                     .background(Color.White),
             ) {
-                Text("List")
-
+                MenuItems()
             }
         }
 
