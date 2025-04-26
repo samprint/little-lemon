@@ -69,5 +69,6 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.room.runtime)
     kapt("androidx.room:room-compiler:2.7.0")
+    implementation(libs.coil.compose)
 
 }
