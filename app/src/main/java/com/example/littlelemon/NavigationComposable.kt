@@ -10,7 +10,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 
 @Composable
-fun Navigation(navController: NavHostController, modifier: Modifier = Modifier) {
+fun Navigation(navController: NavHostController, menuItems: List<MenuItemRoom>, modifier: Modifier = Modifier) {
 
     val context = LocalContext.current
 
@@ -28,7 +28,7 @@ fun Navigation(navController: NavHostController, modifier: Modifier = Modifier) 
             Onboarding(navController)
         }
         composable(Home.route) {
-            Home(navController)
+            Home(navController, menuItems)
         }
 
         composable(Profile.route) {
