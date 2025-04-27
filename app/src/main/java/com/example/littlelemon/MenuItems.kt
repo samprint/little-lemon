@@ -36,7 +36,6 @@ fun MenuItems(
     LazyColumn(
         modifier = Modifier
             .fillMaxHeight()
-            .padding(top = 20.dp)
     ) {
         items(
             items = items,
