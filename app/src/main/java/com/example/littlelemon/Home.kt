@@ -6,18 +6,20 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
@@ -36,7 +38,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -106,7 +108,7 @@ fun Home(
             Column( // Hero Section
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(5f)
+                    .weight(.44f)
                     .background(Color(0xFF495E57)),
             ) {
                 Row ( // Title
@@ -220,10 +222,109 @@ fun Home(
 
                 }
             }
+            Column( // Filter Section
+                modifier = Modifier
+                    .weight(0.21f)
+                    .padding(start = 15.dp, end = 15.dp),
+
+                ){
+                Row {
+                    Text(
+                        "ORDER FOR DELIVERY!",
+                        color = Color.Black,
+                        fontFamily = KarlaRegularFont,
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.ExtraBold,
+                        modifier = Modifier
+                            .padding(top = 40.dp, bottom = 10.dp)
+                    )
+                }
+                Row (
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ){
+                    Button(
+                        onClick = { /*TODO*/ },
+                        contentPadding = PaddingValues(start = 10.dp, end = 10.dp),
+                        shape = RoundedCornerShape(14.dp),
+                        colors = ButtonDefaults
+                            .buttonColors(
+                                Color(0xFFEDEFEE),
+                            ),
+                        ) {
+                        Text(
+                            text = "Starters",
+                            color = Color.Black,
+                            fontFamily = KarlaRegularFont,
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.ExtraBold,
+                        )
+                    }
+                    Button(
+                        onClick = { /*TODO*/ },
+                        contentPadding = PaddingValues(start = 10.dp, end = 10.dp),
+                        shape = RoundedCornerShape(14.dp),
+                        colors = ButtonDefaults
+                            .buttonColors(
+                                Color(0xFFEDEFEE),
+                            ),
+                        ) {
+                        Text(
+                            text = "Mains",
+                            color = Color.Black,
+                            fontFamily = KarlaRegularFont,
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.ExtraBold,
+                            )
+                    }
+                    Button(
+                        onClick = { /*TODO*/ },
+                        contentPadding = PaddingValues(start = 10.dp, end = 10.dp),
+                        shape = RoundedCornerShape(14.dp),
+                        colors = ButtonDefaults
+                            .buttonColors(
+                                Color(0xFFEDEFEE),
+                            ),
+                        ) {
+                        Text(
+                            text = "Desserts",
+                            color = Color.Black,
+                            fontFamily = KarlaRegularFont,
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.ExtraBold,
+                            )
+                    }
+                    Button(
+                        onClick = { /*TODO*/ },
+                        contentPadding = PaddingValues(start = 10.dp, end = 10.dp),
+                        shape = RoundedCornerShape(14.dp),
+                        colors = ButtonDefaults
+                            .buttonColors(
+                                Color(0xFFEDEFEE),
+                            ),
+                        ) {
+                        Text(
+                            text = "Drinks",
+                            color = Color.Black,
+                            fontFamily = KarlaRegularFont,
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.ExtraBold,
+                            )
+                    }
+                }
+                HorizontalDivider(
+                    modifier = Modifier
+                        .padding(top = 30.dp),
+                    color = Color.Gray,
+                    thickness = 0.5.dp
+                )
+            }
             Column( // List Section
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(6.5f)
+                    .weight(0.35f)
                     .background(Color.White),
             ) {
                 if (searchPhrase.isNotEmpty()) {
