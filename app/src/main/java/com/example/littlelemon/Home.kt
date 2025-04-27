@@ -10,11 +10,22 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -25,6 +36,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -36,6 +48,9 @@ fun Home(
         menuItems: List<MenuItemRoom>,
         modifier: Modifier = Modifier,
 ){
+    // add searchPhrase variable here
+    var searchPhrase by rememberSaveable { mutableStateOf("") }
+
     Column(
         // Main Column
         modifier = Modifier
@@ -91,10 +106,10 @@ fun Home(
             Column( // Hero Section
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(3.5f)
+                    .weight(5f)
                     .background(Color(0xFF495E57)),
             ) {
-                Row (
+                Row ( // Title
                     modifier = Modifier
                         .fillMaxHeight(0.212f)
                         .padding(start = 15.dp, end = 15.dp),
@@ -110,7 +125,7 @@ fun Home(
                         fontSize = 60.sp,
                     )
                 }
-                Row (
+                Row ( // Text and hero image
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(
@@ -165,6 +180,45 @@ fun Home(
                         )
                     }
                 }
+                Row ( // Search Text field
+
+                )
+                {
+                    // Add OutlinedTextField
+                    OutlinedTextField(
+                        value = searchPhrase,
+                        onValueChange = { searchPhrase = it },
+                        label = {
+                                    Text(
+                                        "Enter Search Phrase",
+                                    )
+                                },
+                        shape = RoundedCornerShape(8.dp),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(
+                                start = 15.dp,
+                                end = 15.dp,
+                            )
+                            ,
+                        colors = TextFieldDefaults.colors(
+                            focusedContainerColor = Color.White,
+                            unfocusedContainerColor = Color.White,
+                            disabledContainerColor = Color.LightGray, // Optional: for disabled state
+                            // You might also want to adjust indicator colors if needed
+//                            focusedIndicatorColor = MaterialTheme.colorScheme.primary, // Border color when focused
+//                            unfocusedIndicatorColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f) // Border color when unfocused
+                        ),
+                        textStyle = TextStyle(
+                            fontSize = 20.sp,
+                            fontFamily = KarlaRegularFont,
+                            color = Color.Black,
+                        ),
+                        leadingIcon = { Icon( imageVector = Icons.Default.Search, contentDescription = "") }
+
+                    )
+
+                }
             }
             Column( // List Section
                 modifier = Modifier
@@ -172,8 +226,15 @@ fun Home(
                     .weight(6.5f)
                     .background(Color.White),
             ) {
-
-                MenuItems(items = menuItems)
+                if (searchPhrase.isNotEmpty()) {
+                    MenuItems(items = menuItems.filter {
+                        it.title.contains(
+                            searchPhrase,
+                            ignoreCase = true
+                        )
+                    })
+                }
+                else MenuItems(items = menuItems)
 
             }
         }
