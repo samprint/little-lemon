@@ -49,6 +49,8 @@ import com.example.littlelemon.ui.theme.Gray_LL
 import com.example.littlelemon.ui.theme.Green_LL
 import com.example.littlelemon.ui.theme.Order_Divider_LL
 import com.example.littlelemon.ui.theme.Yellow_LL
+import com.example.littlelemon.ui.theme.KarlaRegularFont
+import com.example.littlelemon.ui.theme.MarkaziTextRegularFont
 
 @Composable
 fun Home(

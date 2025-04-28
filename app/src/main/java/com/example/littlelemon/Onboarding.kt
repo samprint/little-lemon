@@ -40,13 +40,15 @@ import com.example.littlelemon.ui.theme.Gray_LL
 import com.example.littlelemon.ui.theme.Green_LL
 import com.example.littlelemon.ui.theme.Pink_LL
 import com.example.littlelemon.ui.theme.Yellow_LL
+import com.example.littlelemon.ui.theme.KarlaRegularFont
+import com.example.littlelemon.ui.theme.MarkaziTextRegularFont
 
-val KarlaRegularFont = FontFamily(
-    Font(R.font.karla_regular)
-)
-val MarkaziTextRegularFont = FontFamily(
-    Font(R.font.markazi_text_regular)
-)
+//val KarlaRegularFont = FontFamily(
+//    Font(R.font.karla_regular)
+//)
+//val MarkaziTextRegularFont = FontFamily(
+//    Font(R.font.markazi_text_regular)
+//)
 
 // Define constants for SharedPreferences keys and name
 const val PREFS_NAME        = "MyAppPrefs"

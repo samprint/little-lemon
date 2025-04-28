@@ -28,6 +28,8 @@ import com.bumptech.glide.integration.compose.GlideImage
 import com.example.littlelemon.ui.theme.Black_LL
 import com.example.littlelemon.ui.theme.Items_Description_LL
 import com.example.littlelemon.ui.theme.Items_Divider_LL
+import com.example.littlelemon.ui.theme.KarlaRegularFont
+import com.example.littlelemon.ui.theme.MarkaziTextRegularFont
 
 @Composable
 fun MenuItems(
