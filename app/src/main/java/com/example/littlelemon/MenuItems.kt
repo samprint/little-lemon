@@ -28,6 +28,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
+import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+import com.bumptech.glide.integration.compose.GlideImage
 
 @Composable
 fun MenuItems(
@@ -51,6 +53,7 @@ fun MenuItems(
     }
 }
 
+@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun MenuItem( item: MenuItemRoom
 ){
@@ -118,14 +121,23 @@ fun MenuItem( item: MenuItemRoom
                     modifier = Modifier
                         .height(25.dp)
                 )
-                Image(
-                    painter = rememberAsyncImagePainter(model = item.image),
+//                Image(
+//                    painter = rememberAsyncImagePainter(model = item.image),
+//                    contentDescription = item.title,
+//                    modifier = Modifier
+//                        .size(80.dp)
+//                        ,
+//                    contentScale = ContentScale.Crop
+//                )
+                GlideImage(
+                    model = item.image,
                     contentDescription = item.title,
                     modifier = Modifier
                         .size(80.dp)
                         ,
                     contentScale = ContentScale.Crop
                 )
+
             }
         }
         HorizontalDivider(
