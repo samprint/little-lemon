@@ -43,6 +43,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.example.littlelemon.ui.theme.Black_LL
+import com.example.littlelemon.ui.theme.Category_Btn_LL
+import com.example.littlelemon.ui.theme.Gray_LL
+import com.example.littlelemon.ui.theme.Green_LL
+import com.example.littlelemon.ui.theme.Order_Divider_LL
+import com.example.littlelemon.ui.theme.Yellow_LL
 
 @Composable
 fun Home(
@@ -59,7 +65,7 @@ fun Home(
         // Main Column
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White)
+            .background(Gray_LL)
             ,
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -111,7 +117,7 @@ fun Home(
                 modifier = Modifier
                     .fillMaxWidth()
                     .weight(.44f)
-                    .background(Color(0xFF495E57)),
+                    .background(Green_LL),
             ) {
                 Row ( // Title
                     modifier = Modifier
@@ -124,7 +130,7 @@ fun Home(
                             .padding(
                                 top = 5.dp,
                                 ),
-                        color = Color(0xFFF4CE14),
+                        color = Yellow_LL,
                         fontFamily = MarkaziTextRegularFont,
                         fontSize = 60.sp,
                     )
@@ -146,7 +152,7 @@ fun Home(
                             text = "Chicago",
                             modifier = Modifier
                                 ,
-                            color = Color.White,
+                            color = Gray_LL,
                             fontFamily = MarkaziTextRegularFont,
                             fontSize = 38.sp,
                         )
@@ -161,7 +167,7 @@ fun Home(
                                 lineHeight = 20.sp,
                                 platformStyle = PlatformTextStyle(includeFontPadding = false)
                             ),
-                            color = Color.White,
+                            color = Gray_LL,
                             fontFamily = KarlaRegularFont,
                             fontSize = 17.sp,
                         )
@@ -206,8 +212,8 @@ fun Home(
                             )
                             ,
                         colors = TextFieldDefaults.colors(
-                            focusedContainerColor = Color.White,
-                            unfocusedContainerColor = Color.White,
+                            focusedContainerColor = Gray_LL,
+                            unfocusedContainerColor = Gray_LL,
                             disabledContainerColor = Color.LightGray, // Optional: for disabled state
                             // You might also want to adjust indicator colors if needed
 //                            focusedIndicatorColor = MaterialTheme.colorScheme.primary, // Border color when focused
@@ -216,7 +222,7 @@ fun Home(
                         textStyle = TextStyle(
                             fontSize = 20.sp,
                             fontFamily = KarlaRegularFont,
-                            color = Color.Black,
+                            color = Black_LL,
                         ),
                         leadingIcon = { Icon( imageVector = Icons.Default.Search, contentDescription = "") }
 
@@ -233,7 +239,7 @@ fun Home(
                 Row {
                     Text(
                         "ORDER FOR DELIVERY!",
-                        color = Color.Black,
+                        color = Black_LL,
                         fontFamily = KarlaRegularFont,
                         fontSize = 20.sp,
                         fontWeight = FontWeight.ExtraBold,
@@ -257,12 +263,12 @@ fun Home(
                         shape = RoundedCornerShape(14.dp),
                         colors = ButtonDefaults
                             .buttonColors(
-                                Color(0xFFEDEFEE),
+                                Category_Btn_LL,
                             ),
                         ) {
                         Text(
                             text = "Starters",
-                            color = Color.Black,
+                            color = Black_LL,
                             fontFamily = KarlaRegularFont,
                             fontSize = 16.sp,
                             fontWeight = FontWeight.ExtraBold,
@@ -278,12 +284,12 @@ fun Home(
                         shape = RoundedCornerShape(14.dp),
                         colors = ButtonDefaults
                             .buttonColors(
-                                Color(0xFFEDEFEE),
+                                Category_Btn_LL,
                             ),
                         ) {
                         Text(
                             text = "Mains",
-                            color = Color.Black,
+                            color = Black_LL,
                             fontFamily = KarlaRegularFont,
                             fontSize = 16.sp,
                             fontWeight = FontWeight.ExtraBold,
@@ -299,12 +305,12 @@ fun Home(
                         shape = RoundedCornerShape(14.dp),
                         colors = ButtonDefaults
                             .buttonColors(
-                                Color(0xFFEDEFEE),
+                                Category_Btn_LL,
                             ),
                         ) {
                         Text(
                             text = "Desserts",
-                            color = Color.Black,
+                            color = Black_LL,
                             fontFamily = KarlaRegularFont,
                             fontSize = 16.sp,
                             fontWeight = FontWeight.ExtraBold,
@@ -320,12 +326,12 @@ fun Home(
                         shape = RoundedCornerShape(14.dp),
                         colors = ButtonDefaults
                             .buttonColors(
-                                Color(0xFFEDEFEE),
+                                Category_Btn_LL,
                             ),
                         ) {
                         Text(
                             text = "All",
-                            color = Color.Black,
+                            color = Black_LL,
                             fontFamily = KarlaRegularFont,
                             fontSize = 16.sp,
                             fontWeight = FontWeight.ExtraBold,
@@ -335,7 +341,7 @@ fun Home(
                 HorizontalDivider(
                     modifier = Modifier
                         .padding(top = 30.dp),
-                    color = Color.Gray,
+                    color = Order_Divider_LL,
                     thickness = 0.5.dp
                 )
             }
@@ -343,7 +349,7 @@ fun Home(
                 modifier = Modifier
                     .fillMaxWidth()
                     .weight(0.35f)
-                    .background(Color.White),
+                    .background(Gray_LL),
             ) {
                 if (searchPhrase.isNotEmpty()) {
                     MenuItems(items = menuItems1.filter {

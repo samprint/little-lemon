@@ -1,6 +1,5 @@
 package com.example.littlelemon
 
-import android.content.Context
 import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -25,7 +24,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -34,6 +32,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.example.littlelemon.ui.theme.Black_LL
+import com.example.littlelemon.ui.theme.Gray_LL
+import com.example.littlelemon.ui.theme.Pink_LL
+import com.example.littlelemon.ui.theme.Yellow_LL
 
 @Composable
 fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
@@ -71,7 +73,7 @@ fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
         // Main Column
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White),
+            .background(Gray_LL),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
 
@@ -95,7 +97,7 @@ fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(1.25f)
-                .background(Color.White),
+                .background(Gray_LL),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
 
@@ -113,7 +115,7 @@ fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(7.5f)
-                .background(Color.White)
+                .background(Gray_LL)
                 .padding(start = 15.dp, end = 15.dp),
         ) {
             //region TextFields
@@ -122,7 +124,7 @@ fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
                 fontFamily = KarlaRegularFont,
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color.Black,
+                color = Black_LL,
                 modifier = Modifier
                     .padding(top = 50.dp, bottom = 70.dp)
             )
@@ -131,7 +133,7 @@ fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
                 fontFamily = KarlaRegularFont,
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color.Black,
+                color = Black_LL,
                 modifier = Modifier
                     .padding(bottom = 5.dp)
             )
@@ -145,7 +147,7 @@ fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
                 textStyle = TextStyle(
                     fontSize = 15.sp,
                     fontFamily = KarlaRegularFont,
-                    color = Color.Black,
+                    color = Black_LL,
                 )
             )
             Text(
@@ -153,7 +155,7 @@ fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
                 fontFamily = KarlaRegularFont,
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color.Black,
+                color = Black_LL,
                 modifier = Modifier
                     .padding(bottom = 5.dp, top = 35.dp)
             )
@@ -167,7 +169,7 @@ fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
                 textStyle = TextStyle(
                     fontSize = 15.sp,
                     fontFamily = KarlaRegularFont,
-                    color = Color.Black,
+                    color = Black_LL,
                 )
             )
             Text(
@@ -175,7 +177,7 @@ fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
                 fontFamily = KarlaRegularFont,
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color.Black,
+                color = Black_LL,
                 modifier = Modifier
                     .padding(bottom = 5.dp, top = 35.dp)
             )
@@ -189,7 +191,7 @@ fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
                 textStyle = TextStyle(
                     fontSize = 15.sp,
                     fontFamily = KarlaRegularFont,
-                    color = Color.Black,
+                    color = Black_LL,
                 )
             )
             //endregion
@@ -215,17 +217,17 @@ fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
                 ,
                 colors = ButtonDefaults
                     .buttonColors(
-                        Color(0xFFF4CE14),
+                        Yellow_LL,
                     ),
                 shape = RoundedCornerShape(8.dp),
-                border = BorderStroke(1.dp, Color(0xFFEE9972))
+                border = BorderStroke(1.dp, Pink_LL)
             ) {
                 Text(
                     text = "Log out",
                     fontFamily = KarlaRegularFont,
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Bold,
-                    color = Color.Black,
+                    color = Black_LL,
                     modifier = Modifier
                         .padding(vertical = 4.dp)
                 )

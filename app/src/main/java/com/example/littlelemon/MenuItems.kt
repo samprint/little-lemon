@@ -1,7 +1,5 @@
 package com.example.littlelemon
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -13,13 +11,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.Divider
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -27,9 +23,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
-import coil.compose.rememberAsyncImagePainter
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
+import com.example.littlelemon.ui.theme.Black_LL
+import com.example.littlelemon.ui.theme.Items_Description_LL
+import com.example.littlelemon.ui.theme.Items_Divider_LL
 
 @Composable
 fun MenuItems(
@@ -76,7 +74,7 @@ fun MenuItem( item: MenuItemRoom
             ){
                 Text( // Title
                     item.title,
-                    color = Color.Black,
+                    color = Black_LL,
                     modifier = Modifier
                         .padding(top = 10.dp, bottom = 5.dp)
                     ,
@@ -88,7 +86,7 @@ fun MenuItem( item: MenuItemRoom
 
                 Text( // Description
                     item.description,
-                    color = Color.Gray,
+                    color = Items_Description_LL,
                     fontFamily = KarlaRegularFont,
                     fontSize = 16.sp,
                     softWrap = true,
@@ -103,7 +101,7 @@ fun MenuItem( item: MenuItemRoom
                 )
                 Text(
                     "$" + "%.2f".format(item.price),
-                    color = Color.Black,
+                    color = Black_LL,
                     fontFamily = KarlaRegularFont,
                     fontSize = 20.sp,
                     letterSpacing = (-0.03).em,
@@ -141,7 +139,7 @@ fun MenuItem( item: MenuItemRoom
             }
         }
         HorizontalDivider(
-            color = Color.LightGray,
+            color = Items_Divider_LL,
             thickness = 0.5.dp
         )
     }

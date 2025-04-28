@@ -25,7 +25,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -36,6 +35,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.example.littlelemon.ui.theme.Black_LL
+import com.example.littlelemon.ui.theme.Gray_LL
+import com.example.littlelemon.ui.theme.Green_LL
+import com.example.littlelemon.ui.theme.Pink_LL
+import com.example.littlelemon.ui.theme.Yellow_LL
 
 val KarlaRegularFont = FontFamily(
     Font(R.font.karla_regular)
@@ -81,7 +85,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
         // Main Column
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White),
+            .background(Gray_LL),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
 
@@ -105,7 +109,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(1.25f)
-                .background(Color(0xFF495E57)),
+                .background(Green_LL),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
 
@@ -114,7 +118,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                 text = "Let's get to know you",
                 fontFamily = KarlaRegularFont,
                 fontSize = 26.sp,
-                color = Color.White,
+                color = Gray_LL,
             )
         }
         //endregion
@@ -123,7 +127,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(7.5f)
-                .background(Color.White)
+                .background(Gray_LL)
                 .padding(start = 15.dp, end = 15.dp),
         ) {
             //region TextFields
@@ -132,7 +136,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                 fontFamily = KarlaRegularFont,
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color.Black,
+                color = Black_LL,
                 modifier = Modifier
                     .padding(top = 50.dp, bottom = 70.dp)
             )
@@ -141,7 +145,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                 fontFamily = KarlaRegularFont,
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color.Black,
+                color = Black_LL,
                 modifier = Modifier
                     .padding(bottom = 5.dp)
             )
@@ -155,7 +159,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                 textStyle = TextStyle(
                     fontSize = 15.sp,
                     fontFamily = KarlaRegularFont,
-                    color = Color.Black,
+                    color = Black_LL,
                 )
             )
             Text(
@@ -163,7 +167,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                 fontFamily = KarlaRegularFont,
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color.Black,
+                color = Black_LL,
                 modifier = Modifier
                     .padding(bottom = 5.dp, top = 35.dp)
             )
@@ -177,7 +181,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                 textStyle = TextStyle(
                     fontSize = 15.sp,
                     fontFamily = KarlaRegularFont,
-                    color = Color.Black,
+                    color = Black_LL,
                 )
             )
             Text(
@@ -185,7 +189,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                 fontFamily = KarlaRegularFont,
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color.Black,
+                color = Black_LL,
                 modifier = Modifier
                     .padding(bottom = 5.dp, top = 35.dp)
             )
@@ -199,7 +203,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                 textStyle = TextStyle(
                     fontSize = 15.sp,
                     fontFamily = KarlaRegularFont,
-                    color = Color.Black,
+                    color = Black_LL,
                 )
             )
             //endregion
@@ -234,17 +238,17 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                     ,
                 colors = ButtonDefaults
                             .buttonColors(
-                                Color(0xFFF4CE14),
+                                Yellow_LL,
                             ),
                 shape = RoundedCornerShape(8.dp),
-                border = BorderStroke(1.dp, Color(0xFFEE9972))
+                border = BorderStroke(1.dp, Pink_LL)
             ) {
                 Text(
                     text = "Register",
                     fontFamily = KarlaRegularFont,
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Bold,
-                    color = Color.Black,
+                    color = Black_LL,
                     modifier = Modifier
                         .padding(vertical = 4.dp)
                 )
