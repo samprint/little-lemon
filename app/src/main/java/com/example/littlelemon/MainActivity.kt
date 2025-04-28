@@ -45,11 +45,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             LittleLemonTheme {
-                // add databaseMenuItems code here
+                //
                 val databaseMenuItems by database.menuItemDao().getAll().observeAsState(emptyList())
-
-                // add orderMenuItems variable here
-                var orderMenuItems by rememberSaveable { mutableStateOf(false) }
 
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     MyNavigation(
