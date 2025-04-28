@@ -53,6 +53,8 @@ fun Home(
     // add searchPhrase variable here
     var searchPhrase by rememberSaveable { mutableStateOf("") }
 
+    var menuItems1 by rememberSaveable { mutableStateOf(menuItems) }
+
     Column(
         // Main Column
         modifier = Modifier
@@ -246,7 +248,11 @@ fun Home(
                     horizontalArrangement = Arrangement.SpaceBetween
                 ){
                     Button(
-                        onClick = { /*TODO*/ },
+                        onClick = {
+                            // resetting
+                            menuItems1 = menuItems
+                            menuItems1 = FilterHelper().filterProducts(FilterType.Starters, menuItems1 )
+                        },
                         contentPadding = PaddingValues(start = 10.dp, end = 10.dp),
                         shape = RoundedCornerShape(14.dp),
                         colors = ButtonDefaults
@@ -263,7 +269,11 @@ fun Home(
                         )
                     }
                     Button(
-                        onClick = { /*TODO*/ },
+                        onClick = {
+                            // resetting
+                            menuItems1 = menuItems
+                            menuItems1 = FilterHelper().filterProducts(FilterType.Mains, menuItems1 )
+                        },
                         contentPadding = PaddingValues(start = 10.dp, end = 10.dp),
                         shape = RoundedCornerShape(14.dp),
                         colors = ButtonDefaults
@@ -280,7 +290,11 @@ fun Home(
                             )
                     }
                     Button(
-                        onClick = { /*TODO*/ },
+                        onClick = {
+                            // resetting
+                            menuItems1 = menuItems
+                            menuItems1 = FilterHelper().filterProducts(FilterType.Desserts, menuItems1 )
+                        },
                         contentPadding = PaddingValues(start = 10.dp, end = 10.dp),
                         shape = RoundedCornerShape(14.dp),
                         colors = ButtonDefaults
@@ -297,7 +311,11 @@ fun Home(
                             )
                     }
                     Button(
-                        onClick = { /*TODO*/ },
+                        onClick = {
+                            // resetting
+                            menuItems1 = menuItems
+                            menuItems1 = FilterHelper().filterProducts(FilterType.All, menuItems1 )
+                        },
                         contentPadding = PaddingValues(start = 10.dp, end = 10.dp),
                         shape = RoundedCornerShape(14.dp),
                         colors = ButtonDefaults
@@ -306,7 +324,7 @@ fun Home(
                             ),
                         ) {
                         Text(
-                            text = "Drinks",
+                            text = "All",
                             color = Color.Black,
                             fontFamily = KarlaRegularFont,
                             fontSize = 16.sp,
@@ -328,14 +346,14 @@ fun Home(
                     .background(Color.White),
             ) {
                 if (searchPhrase.isNotEmpty()) {
-                    MenuItems(items = menuItems.filter {
+                    MenuItems(items = menuItems1.filter {
                         it.title.contains(
                             searchPhrase,
                             ignoreCase = true
                         )
                     })
                 }
-                else MenuItems(items = menuItems)
+                else MenuItems(items = menuItems1)
 
             }
         }
