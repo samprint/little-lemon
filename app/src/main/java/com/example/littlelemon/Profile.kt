@@ -26,6 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -122,7 +123,7 @@ fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
         ) {
             //region TextFields
             Text(
-                text = "Profile information",
+                text = stringResource(id = R.string.Profile_information),
                 fontFamily = KarlaRegularFont,
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
@@ -131,7 +132,7 @@ fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
                     .padding(top = 50.dp, bottom = 70.dp)
             )
             Text(
-                text = "First name",
+                text = stringResource(id = R.string.First_name),
                 fontFamily = KarlaRegularFont,
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Bold,
@@ -153,7 +154,7 @@ fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
                 )
             )
             Text(
-                text = "Last name",
+                text = stringResource(id = R.string.Last_name),
                 fontFamily = KarlaRegularFont,
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Bold,
@@ -175,7 +176,7 @@ fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
                 )
             )
             Text(
-                text = "Email",
+                text = stringResource(id = R.string.Email),
                 fontFamily = KarlaRegularFont,
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Bold,
@@ -225,7 +226,7 @@ fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
                 border = BorderStroke(1.dp, Pink_LL)
             ) {
                 Text(
-                    text = "Log out",
+                    text = stringResource(id = R.string.Log_out),
                     fontFamily = KarlaRegularFont,
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Bold,

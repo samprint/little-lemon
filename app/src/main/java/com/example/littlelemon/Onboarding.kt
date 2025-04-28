@@ -27,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -117,7 +118,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
 
             ) {
             Text(
-                text = "Let's get to know you",
+                text = stringResource(id = R.string.Lets_get_to_know_you),
                 fontFamily = KarlaRegularFont,
                 fontSize = 26.sp,
                 color = Gray_LL,
@@ -134,7 +135,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
         ) {
             //region TextFields
             Text(
-                text = "Personal information",
+                text = stringResource(id = R.string.Personal_information),
                 fontFamily = KarlaRegularFont,
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
@@ -143,7 +144,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                     .padding(top = 50.dp, bottom = 70.dp)
             )
             Text(
-                text = "First name",
+                text = stringResource(id = R.string.First_name),
                 fontFamily = KarlaRegularFont,
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Bold,
@@ -165,7 +166,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                 )
             )
             Text(
-                text = "Last name",
+                text = stringResource(id = R.string.Last_name),
                 fontFamily = KarlaRegularFont,
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Bold,
@@ -187,7 +188,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                 )
             )
             Text(
-                text = "Email",
+                text = stringResource(id = R.string.Email),
                 fontFamily = KarlaRegularFont,
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Bold,
@@ -246,7 +247,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                 border = BorderStroke(1.dp, Pink_LL)
             ) {
                 Text(
-                    text = "Register",
+                    text = stringResource(id = R.string.Register),
                     fontFamily = KarlaRegularFont,
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Bold,

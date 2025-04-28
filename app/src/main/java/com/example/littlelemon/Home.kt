@@ -36,6 +36,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -127,7 +128,7 @@ fun Home(
                         .padding(start = 15.dp, end = 15.dp),
                 ){
                     Text(
-                        text = "Little Lemon",
+                        text = stringResource(id = R.string.Little_Lemon),
                         modifier = Modifier
                             .padding(
                                 top = 5.dp,
@@ -151,7 +152,7 @@ fun Home(
                             .fillMaxWidth(0.60f)
                     ){
                         Text(
-                            text = "Chicago",
+                            text = stringResource(id = R.string.Chicago),
                             modifier = Modifier
                                 ,
                             color = Gray_LL,
@@ -159,8 +160,7 @@ fun Home(
                             fontSize = 38.sp,
                         )
                         Text(
-                            text = "We are a family owned Mediterranean restaurant, " +
-                                    "focused on traditional recipes served with a modern twist.",
+                            text = stringResource(id = R.string.Hero_About),
                             modifier = Modifier
                                 .padding(
                                     top = 10.dp
@@ -202,7 +202,7 @@ fun Home(
                         onValueChange = { searchPhrase = it },
                         label = {
                                     Text(
-                                        "Enter Search Phrase",
+                                        stringResource(id = R.string.Enter_Search_Phrase),
                                     )
                                 },
                         shape = RoundedCornerShape(8.dp),
@@ -240,7 +240,7 @@ fun Home(
                 ){
                 Row {
                     Text(
-                        "ORDER FOR DELIVERY!",
+                        stringResource(id = R.string.Order_For_Delivery),
                         color = Black_LL,
                         fontFamily = KarlaRegularFont,
                         fontSize = 20.sp,
@@ -269,7 +269,7 @@ fun Home(
                             ),
                         ) {
                         Text(
-                            text = "Starters",
+                            text = stringResource(id = R.string.Starters),
                             color = Black_LL,
                             fontFamily = KarlaRegularFont,
                             fontSize = 16.sp,
@@ -290,7 +290,7 @@ fun Home(
                             ),
                         ) {
                         Text(
-                            text = "Mains",
+                            text = stringResource(id = R.string.Mains),
                             color = Black_LL,
                             fontFamily = KarlaRegularFont,
                             fontSize = 16.sp,
@@ -311,7 +311,7 @@ fun Home(
                             ),
                         ) {
                         Text(
-                            text = "Desserts",
+                            text = stringResource(id = R.string.Desserts),
                             color = Black_LL,
                             fontFamily = KarlaRegularFont,
                             fontSize = 16.sp,
@@ -332,7 +332,7 @@ fun Home(
                             ),
                         ) {
                         Text(
-                            text = "All",
+                            text = stringResource(id = R.string.All),
                             color = Black_LL,
                             fontFamily = KarlaRegularFont,
                             fontSize = 16.sp,
