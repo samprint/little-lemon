@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.interaction.Interaction
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -29,8 +30,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -39,10 +38,13 @@ import androidx.navigation.NavHostController
 import com.example.littlelemon.ui.theme.Black_LL
 import com.example.littlelemon.ui.theme.Gray_LL
 import com.example.littlelemon.ui.theme.Green_LL
+import com.example.littlelemon.ui.theme.KarlaRegularFont
 import com.example.littlelemon.ui.theme.Pink_LL
 import com.example.littlelemon.ui.theme.Yellow_LL
-import com.example.littlelemon.ui.theme.KarlaRegularFont
-import com.example.littlelemon.ui.theme.MarkaziTextRegularFont
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.PressInteraction
+import androidx.compose.runtime.LaunchedEffect
+
 
 //val KarlaRegularFont = FontFamily(
 //    Font(R.font.karla_regular)
@@ -70,6 +72,20 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
     var firstname by remember { mutableStateOf( "") }
     var lastname by remember { mutableStateOf( "") }
     var email by remember { mutableStateOf( "") }
+
+    // Button interaction
+    val interactionSource = remember { MutableInteractionSource() }
+    var isPressed by remember { mutableStateOf(false) }
+
+    // Listen to interactions
+    LaunchedEffect(interactionSource) {
+        interactionSource.interactions.collect { interaction: Interaction ->
+            when (interaction) {
+                is PressInteraction.Press -> isPressed = true
+                is PressInteraction.Release, is PressInteraction.Cancel -> isPressed = false
+            }
+        }
+    }
 
     val context = LocalContext.current
     val sharedPreferences = remember { getPreferences(context) }
@@ -241,8 +257,11 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                     ,
                 colors = ButtonDefaults
                             .buttonColors(
-                                Yellow_LL,
+                                // Button interaction
+                                if (isPressed) Green_LL else Yellow_LL,
                             ),
+                // Button interaction
+                interactionSource = interactionSource,
                 shape = RoundedCornerShape(8.dp),
                 border = BorderStroke(1.dp, Pink_LL)
             ) {
@@ -251,7 +270,8 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                     fontFamily = KarlaRegularFont,
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Bold,
-                    color = Black_LL,
+                    // Button interaction
+                    color = if (isPressed) Gray_LL else Black_LL,
                     modifier = Modifier
                         .padding(vertical = 4.dp)
                 )

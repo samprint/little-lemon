@@ -4,6 +4,7 @@ import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.interaction.Interaction
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -39,6 +40,9 @@ import com.example.littlelemon.ui.theme.Pink_LL
 import com.example.littlelemon.ui.theme.Yellow_LL
 import com.example.littlelemon.ui.theme.KarlaRegularFont
 import com.example.littlelemon.ui.theme.MarkaziTextRegularFont
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.PressInteraction
+import com.example.littlelemon.ui.theme.Green_LL
 
 @Composable
 fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
@@ -46,6 +50,20 @@ fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
     var firstname by remember { mutableStateOf( "") }
     var lastname by remember { mutableStateOf( "") }
     var email by remember { mutableStateOf( "") }
+
+    // Button interaction
+    val interactionSource = remember { MutableInteractionSource() }
+    var isPressed by remember { mutableStateOf(false) }
+
+    // Listen to interactions
+    LaunchedEffect(interactionSource) {
+        interactionSource.interactions.collect { interaction: Interaction ->
+            when (interaction) {
+                is PressInteraction.Press -> isPressed = true
+                is PressInteraction.Release, is PressInteraction.Cancel -> isPressed = false
+            }
+        }
+    }
 
     val context = LocalContext.current
     val sharedPreferences = remember { getPreferences(context) }
@@ -220,8 +238,11 @@ fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
                 ,
                 colors = ButtonDefaults
                     .buttonColors(
-                        Yellow_LL,
+                        // Button interaction
+                        if (isPressed) Green_LL else Yellow_LL,
                     ),
+                // Button interaction
+                interactionSource = interactionSource,
                 shape = RoundedCornerShape(8.dp),
                 border = BorderStroke(1.dp, Pink_LL)
             ) {
@@ -230,7 +251,8 @@ fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
                     fontFamily = KarlaRegularFont,
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Bold,
-                    color = Black_LL,
+                    // Button interaction
+                    color = if (isPressed) Gray_LL else Black_LL,
                     modifier = Modifier
                         .padding(vertical = 4.dp)
                 )

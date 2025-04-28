@@ -72,6 +72,12 @@ dependencies {
     kapt("androidx.room:room-compiler:2.7.0")
     implementation(libs.coil.compose)
     implementation ("com.github.bumptech.glide:compose:1.0.0-beta01")
+    // Button interaction
+    implementation (libs.foundation)
+    implementation (libs.material3)
+    implementation (libs.ui)
+    implementation (libs.androidx.compose.foundation.foundation)
+
 
 
 }
