@@ -44,8 +44,10 @@ import com.example.littlelemon.ui.theme.Yellow_LL
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.PressInteraction
 import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.focus.FocusDirection
@@ -117,6 +119,8 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
     // Get the Focus Manager
     val focusManager = LocalFocusManager.current
 
+    val scrollState = rememberScrollState() // Needed if content might exceed screen height
+
     Column(
         // Main Column
         modifier = Modifier
@@ -164,7 +168,9 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                 .fillMaxWidth()
                 .weight(7.5f)
                 .background(Gray_LL)
-                .padding(start = 15.dp, end = 15.dp),
+                .padding(start = 15.dp, end = 15.dp)
+                .imePadding() // Add padding equal to the IME height at the bottom
+                .verticalScroll(scrollState),
         ) {
             //region TextFields
             Text(
