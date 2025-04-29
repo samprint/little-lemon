@@ -353,6 +353,7 @@ fun Home(
                     .weight(0.35f)
                     .background(Gray_LL),
             ) {
+                // the search can be applied on the filtered list
                 if (searchPhrase.isNotEmpty()) {
                     MenuItems(items = menuItems1.filter {
                         it.title.contains(
@@ -361,7 +362,13 @@ fun Home(
                         )
                     })
                 }
-                else MenuItems(items = menuItems1)
+                // display all the filtered items if search is empty
+                else {
+                    // to make sure menuItems1 is not empty
+                    if (menuItems1.isEmpty()) menuItems1 = menuItems
+
+                    MenuItems(items = menuItems1)
+                }
 
             }
         }

@@ -235,6 +235,13 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                             Toast.LENGTH_LONG
                         ).show()
                     }
+                    else if (!validateEmail(email) && (firstname.isNotEmpty() && lastname.isNotEmpty() && email.isNotEmpty()))
+                    {
+                        Toast.makeText(context,
+                            "Registration unsuccessful. Please enter a valid email.",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
                     else{
                         Toast.makeText(context,
                             "Registration successful!",
