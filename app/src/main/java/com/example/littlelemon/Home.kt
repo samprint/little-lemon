@@ -402,19 +402,20 @@ fun Home(
             ) {
                 // the search can be applied on the filtered list
                 if (searchPhrase.isNotEmpty()) {
-                    MenuItems(items = menuItems1.filter {
-                        it.title.contains(
-                            searchPhrase,
-                            ignoreCase = true
-                        )
-                    })
+                    MenuItems(
+                        items =
+                            (menuItems1
+                                .filter {
+                                    it.title.contains( searchPhrase, ignoreCase = true )
+                                }).sortedBy{ it.title }
+                    )
                 }
                 // display all the filtered items if search is empty
                 else {
                     // to make sure menuItems1 is not empty
-                    if (menuItems1.isEmpty() && (filterFlag == false)) menuItems1 = menuItems
+                    if (menuItems1.isEmpty() && (filterFlag == false)) menuItems1 = menuItems.sortedBy{ it.title }
 
-                    MenuItems(items = menuItems1)
+                    MenuItems(items = menuItems1.sortedBy{ it.title })
                 }
 
             }
