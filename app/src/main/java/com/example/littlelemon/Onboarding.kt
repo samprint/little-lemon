@@ -43,8 +43,17 @@ import com.example.littlelemon.ui.theme.Pink_LL
 import com.example.littlelemon.ui.theme.Yellow_LL
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.PressInteraction
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.material3.IconButton
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.focus.FocusDirection
 
+import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material3.Icon
+//import androidx.compose.material.icons.filled.ArrowDownward // Use an appropriate icon
+//import androidx.compose.material.icons.filled.ArrowForward
 
 //val KarlaRegularFont = FontFamily(
 //    Font(R.font.karla_regular)
@@ -99,6 +108,9 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
             .putBoolean(IS_LOGGED_IN_KEY, true)
             .apply()
     }
+
+    // Get the Focus Manager
+    val focusManager = LocalFocusManager.current
 
     Column(
         // Main Column
@@ -174,12 +186,29 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                 shape = RoundedCornerShape(8.dp),
                 modifier = Modifier
                     .height(50.dp)
-                    .fillMaxWidth(),
+                    .fillMaxWidth()
+                    ,
                 textStyle = TextStyle(
                     fontSize = 15.sp,
                     fontFamily = KarlaRegularFont,
                     color = Black_LL,
-                )
+                ),
+                trailingIcon = {
+                    // Use IconButton to make the icon clickable
+                    IconButton(
+                        onClick = {
+                            // When clicked, move focus to the next focusable item downwards
+                            focusManager.moveFocus(FocusDirection.Down)
+                        }
+                    ) {
+                        // The actual Icon visual
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowForward, // Or ArrowForward
+                            // Crucial for accessibility! Describe what the button does.
+                            contentDescription = "Move focus to next field"
+                        )
+                    }
+                }
             )
             Text(
                 text = stringResource(id = R.string.Last_name),
@@ -196,12 +225,29 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                 shape = RoundedCornerShape(8.dp),
                 modifier = Modifier
                     .height(50.dp)
-                    .fillMaxWidth(),
+                    .fillMaxWidth()
+                    ,
                 textStyle = TextStyle(
                     fontSize = 15.sp,
                     fontFamily = KarlaRegularFont,
                     color = Black_LL,
-                )
+                ),
+                trailingIcon = {
+                    // Use IconButton to make the icon clickable
+                    IconButton(
+                        onClick = {
+                            // When clicked, move focus to the next focusable item downwards
+                            focusManager.moveFocus(FocusDirection.Down)
+                        }
+                    ) {
+                        // The actual Icon visual
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowForward, // Or ArrowForward
+                            // Crucial for accessibility! Describe what the button does.
+                            contentDescription = "Move focus to next field"
+                        )
+                    }
+                }
             )
             Text(
                 text = stringResource(id = R.string.Email),
@@ -218,12 +264,29 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                 shape = RoundedCornerShape(8.dp),
                 modifier = Modifier
                     .height(50.dp)
-                    .fillMaxWidth(),
+                    .fillMaxWidth()
+                    ,
                 textStyle = TextStyle(
                     fontSize = 15.sp,
                     fontFamily = KarlaRegularFont,
                     color = Black_LL,
-                )
+                ),
+                trailingIcon = {
+                    // Use IconButton to make the icon clickable
+                    IconButton(
+                        onClick = {
+                            // When clicked, move focus to the next focusable item downwards
+                            focusManager.moveFocus(FocusDirection.Down)
+                        }
+                    ) {
+                        // The actual Icon visual
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowForward, // Or ArrowForward
+                            // Crucial for accessibility! Describe what the button does.
+                            contentDescription = "Move focus to next field"
+                        )
+                    }
+                }
             )
             //endregion
             Button(
