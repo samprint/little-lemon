@@ -8,6 +8,8 @@ class FilterHelper {
             FilterType.Mains -> menuItems.filter { it.category == "mains" }
             FilterType.Desserts -> menuItems.filter { it.category == "desserts" }
             FilterType.Starters -> menuItems.filter { it.category == "starters" }
+            FilterType.Drinks -> menuItems.filter { it.category == "drinks" }
+
         }
     }
 

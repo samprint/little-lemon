@@ -66,6 +66,8 @@ fun Home(
 
     var menuItems1 by rememberSaveable { mutableStateOf(menuItems) }
 
+    var filterFlag by rememberSaveable { mutableStateOf(false) }
+
     Column(
         // Main Column
         modifier = Modifier
@@ -274,6 +276,7 @@ fun Home(
                             // resetting
                             menuItems1 = menuItems
                             menuItems1 = FilterHelper().filterProducts(FilterType.Starters, menuItems1 )
+                            filterFlag = true
                         },
                         contentPadding = PaddingValues(start = 10.dp, end = 10.dp),
                         shape = RoundedCornerShape(14.dp),
@@ -281,7 +284,8 @@ fun Home(
                             .buttonColors(
                                 Category_Btn_LL,
                             ),
-                        ) {
+                        )
+                    {
                         Text(
                             text = stringResource(id = R.string.Starters),
                             color = Black_LL,
@@ -295,6 +299,7 @@ fun Home(
                             // resetting
                             menuItems1 = menuItems
                             menuItems1 = FilterHelper().filterProducts(FilterType.Mains, menuItems1 )
+                            filterFlag = true
                         },
                         contentPadding = PaddingValues(start = 10.dp, end = 10.dp),
                         shape = RoundedCornerShape(14.dp),
@@ -302,7 +307,8 @@ fun Home(
                             .buttonColors(
                                 Category_Btn_LL,
                             ),
-                        ) {
+                        )
+                    {
                         Text(
                             text = stringResource(id = R.string.Mains),
                             color = Black_LL,
@@ -316,6 +322,7 @@ fun Home(
                             // resetting
                             menuItems1 = menuItems
                             menuItems1 = FilterHelper().filterProducts(FilterType.Desserts, menuItems1 )
+                            filterFlag = true
                         },
                         contentPadding = PaddingValues(start = 10.dp, end = 10.dp),
                         shape = RoundedCornerShape(14.dp),
@@ -323,7 +330,8 @@ fun Home(
                             .buttonColors(
                                 Category_Btn_LL,
                             ),
-                        ) {
+                        )
+                    {
                         Text(
                             text = stringResource(id = R.string.Desserts),
                             color = Black_LL,
@@ -336,7 +344,8 @@ fun Home(
                         onClick = {
                             // resetting
                             menuItems1 = menuItems
-                            menuItems1 = FilterHelper().filterProducts(FilterType.All, menuItems1 )
+                            menuItems1 = FilterHelper().filterProducts(FilterType.Drinks, menuItems1 )
+                            filterFlag = true
                         },
                         contentPadding = PaddingValues(start = 10.dp, end = 10.dp),
                         shape = RoundedCornerShape(14.dp),
@@ -344,7 +353,31 @@ fun Home(
                             .buttonColors(
                                 Category_Btn_LL,
                             ),
-                        ) {
+                        )
+                    {
+                        Text(
+                            text = stringResource(id = R.string.Drinks),
+                            color = Black_LL,
+                            fontFamily = KarlaRegularFont,
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.ExtraBold,
+                            )
+                    }
+                    Button(
+                        onClick = {
+                            // resetting
+                            menuItems1 = menuItems
+                            menuItems1 = FilterHelper().filterProducts(FilterType.All, menuItems1 )
+                            filterFlag = true
+                        },
+                        contentPadding = PaddingValues(start = 10.dp, end = 10.dp),
+                        shape = RoundedCornerShape(14.dp),
+                        colors = ButtonDefaults
+                            .buttonColors(
+                                Category_Btn_LL,
+                            ),
+                        )
+                    {
                         Text(
                             text = stringResource(id = R.string.All),
                             color = Black_LL,
@@ -379,7 +412,7 @@ fun Home(
                 // display all the filtered items if search is empty
                 else {
                     // to make sure menuItems1 is not empty
-                    if (menuItems1.isEmpty()) menuItems1 = menuItems
+                    if (menuItems1.isEmpty() && (filterFlag == false)) menuItems1 = menuItems
 
                     MenuItems(items = menuItems1)
                 }

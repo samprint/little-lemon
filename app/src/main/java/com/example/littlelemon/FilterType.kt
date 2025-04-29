@@ -5,4 +5,5 @@ sealed class FilterType {
     object Starters : FilterType()
     object Mains : FilterType()
     object Desserts : FilterType()
+    object Drinks : FilterType()
 }
