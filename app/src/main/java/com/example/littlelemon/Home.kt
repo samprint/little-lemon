@@ -50,10 +50,10 @@ import com.example.littlelemon.ui.theme.Black_LL
 import com.example.littlelemon.ui.theme.Category_Btn_LL
 import com.example.littlelemon.ui.theme.Gray_LL
 import com.example.littlelemon.ui.theme.Green_LL
-import com.example.littlelemon.ui.theme.Order_Divider_LL
-import com.example.littlelemon.ui.theme.Yellow_LL
 import com.example.littlelemon.ui.theme.KarlaRegularFont
 import com.example.littlelemon.ui.theme.MarkaziTextRegularFont
+import com.example.littlelemon.ui.theme.Order_Divider_LL
+import com.example.littlelemon.ui.theme.Yellow_LL
 
 @Composable
 fun Home(
@@ -66,6 +66,7 @@ fun Home(
 
     var menuItems1 by rememberSaveable { mutableStateOf(menuItems) }
 
+    // Check if filter was used
     var filterFlag by rememberSaveable { mutableStateOf(false) }
 
     Column(
@@ -102,9 +103,6 @@ fun Home(
                     painter = painterResource(id = R.drawable.profile2),
                     contentDescription = "Profile",
                     Modifier
-//                        .offset(
-//                            x = (-35).dp,
-//                        )
                         .size(120.dp)
                         .scale(0.5f)
                         .align(Alignment.TopEnd)
@@ -197,7 +195,6 @@ fun Home(
                     }
                 }
                 Row ( // Search Text field
-
                 )
                 {
                     // Add OutlinedTextField
@@ -223,9 +220,6 @@ fun Home(
                             focusedContainerColor = Gray_LL,
                             unfocusedContainerColor = Gray_LL,
                             disabledContainerColor = Color.LightGray, // Optional: for disabled state
-                            // You might also want to adjust indicator colors if needed
-//                            focusedIndicatorColor = MaterialTheme.colorScheme.primary, // Border color when focused
-//                            unfocusedIndicatorColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f) // Border color when unfocused
                         ),
                         textStyle = TextStyle(
                             fontSize = 20.sp,
@@ -273,8 +267,9 @@ fun Home(
                 ){
                     Button(
                         onClick = {
-                            // resetting
+                            // resetting before filtering
                             menuItems1 = menuItems
+
                             menuItems1 = FilterHelper().filterProducts(FilterType.Starters, menuItems1 )
                             filterFlag = true
                         },
@@ -298,6 +293,7 @@ fun Home(
                         onClick = {
                             // resetting
                             menuItems1 = menuItems
+
                             menuItems1 = FilterHelper().filterProducts(FilterType.Mains, menuItems1 )
                             filterFlag = true
                         },
@@ -321,6 +317,7 @@ fun Home(
                         onClick = {
                             // resetting
                             menuItems1 = menuItems
+
                             menuItems1 = FilterHelper().filterProducts(FilterType.Desserts, menuItems1 )
                             filterFlag = true
                         },
@@ -344,6 +341,7 @@ fun Home(
                         onClick = {
                             // resetting
                             menuItems1 = menuItems
+
                             menuItems1 = FilterHelper().filterProducts(FilterType.Drinks, menuItems1 )
                             filterFlag = true
                         },
@@ -367,6 +365,7 @@ fun Home(
                         onClick = {
                             // resetting
                             menuItems1 = menuItems
+                            
                             menuItems1 = FilterHelper().filterProducts(FilterType.All, menuItems1 )
                             filterFlag = true
                         },

@@ -5,6 +5,8 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.Interaction
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.PressInteraction
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -36,13 +38,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.littlelemon.ui.theme.Black_LL
 import com.example.littlelemon.ui.theme.Gray_LL
+import com.example.littlelemon.ui.theme.Green_LL
+import com.example.littlelemon.ui.theme.KarlaRegularFont
 import com.example.littlelemon.ui.theme.Pink_LL
 import com.example.littlelemon.ui.theme.Yellow_LL
-import com.example.littlelemon.ui.theme.KarlaRegularFont
-import com.example.littlelemon.ui.theme.MarkaziTextRegularFont
-import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.interaction.PressInteraction
-import com.example.littlelemon.ui.theme.Green_LL
 
 @Composable
 fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
@@ -123,12 +122,6 @@ fun Profile(navController: NavHostController, modifier: Modifier = Modifier){
             horizontalAlignment = Alignment.CenterHorizontally,
 
             ) {
-//            Text(
-//                text = "Let's get to know you",
-//                fontFamily = KarlaRegularFont,
-//                fontSize = 26.sp,
-//                color = Color.White,
-//            )
         }
         //endregion
         Column(

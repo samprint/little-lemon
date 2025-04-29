@@ -8,6 +8,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.littlelemon.R
 
+// Little Lemon font families
 val KarlaRegularFont = FontFamily(
     Font(R.font.karla_regular)
 )

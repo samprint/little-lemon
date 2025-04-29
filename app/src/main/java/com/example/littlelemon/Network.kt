@@ -34,7 +34,6 @@ data class MenuItemNetwork(
 
     ) {
     fun toMenuItemRoom() = MenuItemRoom(
-        // add code here
         id,
         title,
         description,

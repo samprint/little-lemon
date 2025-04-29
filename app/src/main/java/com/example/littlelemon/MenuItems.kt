@@ -29,7 +29,6 @@ import com.example.littlelemon.ui.theme.Black_LL
 import com.example.littlelemon.ui.theme.Items_Description_LL
 import com.example.littlelemon.ui.theme.Items_Divider_LL
 import com.example.littlelemon.ui.theme.KarlaRegularFont
-import com.example.littlelemon.ui.theme.MarkaziTextRegularFont
 
 @Composable
 fun MenuItems(
@@ -121,14 +120,6 @@ fun MenuItem( item: MenuItemRoom
                     modifier = Modifier
                         .height(25.dp)
                 )
-//                Image(
-//                    painter = rememberAsyncImagePainter(model = item.image),
-//                    contentDescription = item.title,
-//                    modifier = Modifier
-//                        .size(80.dp)
-//                        ,
-//                    contentScale = ContentScale.Crop
-//                )
                 GlideImage(
                     model = item.image,
                     contentDescription = item.title,
