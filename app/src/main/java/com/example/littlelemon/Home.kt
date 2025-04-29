@@ -208,6 +208,8 @@ fun Home(
                                     )
                                 },
                         shape = RoundedCornerShape(8.dp),
+                        // if singleLine = true, no need for keyboard options or actions
+                        singleLine = true,
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(

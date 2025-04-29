@@ -44,6 +44,8 @@ import com.example.littlelemon.ui.theme.Yellow_LL
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.PressInteraction
 import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.focus.FocusDirection
@@ -51,7 +53,10 @@ import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.filled.Done
 import androidx.compose.material3.Icon
+import androidx.compose.ui.text.input.ImeAction
+
 //import androidx.compose.material.icons.filled.ArrowDownward // Use an appropriate icon
 //import androidx.compose.material.icons.filled.ArrowForward
 
@@ -184,6 +189,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                 value = firstname,
                 onValueChange = { firstname = it },
                 shape = RoundedCornerShape(8.dp),
+                singleLine = true, // Often desired with a "Done" action
                 modifier = Modifier
                     .height(50.dp)
                     .fillMaxWidth()
@@ -223,6 +229,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                 value = lastname,
                 onValueChange = { lastname = it },
                 shape = RoundedCornerShape(8.dp),
+                singleLine = true, // Often desired with a "Done" action
                 modifier = Modifier
                     .height(50.dp)
                     .fillMaxWidth()
@@ -262,6 +269,7 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                 value = email,
                 onValueChange = { email = it },
                 shape = RoundedCornerShape(8.dp),
+                singleLine = true, // Often desired with a "Done" action
                 modifier = Modifier
                     .height(50.dp)
                     .fillMaxWidth()
@@ -271,19 +279,33 @@ fun Onboarding(navController: NavHostController, modifier: Modifier = Modifier){
                     fontFamily = KarlaRegularFont,
                     color = Black_LL,
                 ),
+                // --- Add KeyboardOptions/Actions for consistency ---
+                keyboardOptions = KeyboardOptions(
+                    // Set the keyboard action button to "Done"
+                    imeAction = ImeAction.Done
+                ),
+                keyboardActions = KeyboardActions(
+                    // When "Done" is pressed on the keyboard
+                    onDone = {
+                        focusManager.clearFocus() // Clear focus to hide keyboard
+                        // You might also trigger form submission logic here
+                        println("Done action triggered from keyboard")
+                    }
+                ),
+                // --- Add Trailing Icon to Hide Keyboard ---
                 trailingIcon = {
-                    // Use IconButton to make the icon clickable
                     IconButton(
                         onClick = {
-                            // When clicked, move focus to the next focusable item downwards
-                            focusManager.moveFocus(FocusDirection.Down)
+                            // When the icon button is clicked:
+                            focusManager.clearFocus() // <<--- This hides the keyboard
+                            // You might also trigger form submission logic here
+                            println("Done action triggered from icon")
                         }
                     ) {
-                        // The actual Icon visual
                         Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowForward, // Or ArrowForward
-                            // Crucial for accessibility! Describe what the button does.
-                            contentDescription = "Move focus to next field"
+                            // Choose an icon like Done or KeyboardHide
+                            imageVector = Icons.Default.Done, // Or Icons.Default.KeyboardHide
+                            contentDescription = "Done / Hide keyboard" // Describe the action
                         )
                     }
                 }
